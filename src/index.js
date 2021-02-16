@@ -46,3 +46,4 @@ serviceWorkerRegistration.register();
 reportWebVitals();
 
 export const db = firebase.database()
+export const uid = 'hakimhassani97'
