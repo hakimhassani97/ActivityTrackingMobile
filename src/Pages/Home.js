@@ -11,6 +11,8 @@ if (window.DeviceMotionEvent) {
     console.log("DeviceMotionEvent is supported");
 }
 
+let k
+
 class Home extends React.Component {
     constructor(props){
         super(props)
@@ -19,25 +21,29 @@ class Home extends React.Component {
     startAccel = ()=>{
         if(this.state.recording === false){
             this.setState({recording: true}, ()=>{
-                window.addEventListener('deviceorientation', e =>{
-                    let k = db.ref('users/'+uid+'/').push().key
-                    db.ref('users/'+uid+'/'+k).set({
-                        gyro: {alpha:e.alpha, beta:e.beta, gamma:e.gamma}
-                    });
-                });
-                window.addEventListener('devicemotion', e =>{
-                    let k = db.ref('users/'+uid+'/').push().key
-                    db.ref('users/'+uid+'/'+k).set({
-                        name: 'hakim',
-                        accel: {acceleration:e.acceleration, accelerationIncludingGravity:e.accelerationIncludingGravity, rotationRate:e.rotationRate}
-                    });
-                }, false);
+                window.ondeviceorientation = null
+                window.addEventListener('deviceorientation', this.handleOrientation)
             })
         }else{
-            this.setState({recording: false}, ()=>{
-                window.ondeviceorientation = null
-                window.ondevicemotion = null
-            })
+            this.setState({recording: false})
+        }
+    }
+    handleOrientation = (e)=>{
+        if(this.state.recording){
+            window.ondevicemotion = null
+            window.addEventListener('devicemotion', (v)=>this.handleMotion(v, {
+                gyro: {alpha:e.alpha, beta:e.beta, gamma:e.gamma},
+                date: new Date().toISOString()
+            }));
+        }
+    }
+    handleMotion = (e, obj)=>{
+        if(this.state.recording){
+            k = db.ref('users/'+uid+'/').push().key
+            db.ref('users/'+uid+'/'+k).set({
+                accel: {acceleration: Math.random(), accelerationIncludingGravity: Math.random(), rotationRate: Math.random()},
+                ...obj
+            });
         }
     }
     render (){
