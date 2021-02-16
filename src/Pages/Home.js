@@ -4,17 +4,14 @@ import {db} from '../index'
 
 class Home extends React.Component {
     startAccel = ()=>{
-        window.addEventListener('deviceorientation', e =>
-            console.log(e.alpha, e.beta, e.gamma)
-        );
-
-        let k = db.ref('users/').push().key
-        db.ref('users/'+k).set({
-            username: 'hakimhassani97',
-            email: 'hakimhassani97@gmail.com',
-            gyro: Math.random()
+        window.addEventListener('deviceorientation', e =>{
+            let k = db.ref('users/').push().key
+            db.ref('users/'+k).set({
+                username: 'hakimhassani97',
+                email: 'hakimhassani97@gmail.com',
+                gyro: {alpha:e.alpha, beta:e.beta, gamma:e.gamma}
+            });
         });
-        
     }
     render (){
         return (
