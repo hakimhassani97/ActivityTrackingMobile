@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/ActivityTrackingMobile/static/css/main.a1829319.chunk.css",
-    "main.js": "/ActivityTrackingMobile/static/js/main.26923997.chunk.js",
-    "main.js.map": "/ActivityTrackingMobile/static/js/main.26923997.chunk.js.map",
-    "runtime-main.js": "/ActivityTrackingMobile/static/js/runtime-main.a03b0f1f.js",
-    "runtime-main.js.map": "/ActivityTrackingMobile/static/js/runtime-main.a03b0f1f.js.map",
-    "static/js/2.8b84b3bf.chunk.js": "/ActivityTrackingMobile/static/js/2.8b84b3bf.chunk.js",
-    "static/js/2.8b84b3bf.chunk.js.map": "/ActivityTrackingMobile/static/js/2.8b84b3bf.chunk.js.map",
-    "static/js/3.ad785903.chunk.js": "/ActivityTrackingMobile/static/js/3.ad785903.chunk.js",
-    "static/js/3.ad785903.chunk.js.map": "/ActivityTrackingMobile/static/js/3.ad785903.chunk.js.map",
+    "main.js": "/ActivityTrackingMobile/static/js/main.695faf15.chunk.js",
+    "main.js.map": "/ActivityTrackingMobile/static/js/main.695faf15.chunk.js.map",
+    "runtime-main.js": "/ActivityTrackingMobile/static/js/runtime-main.054b5a67.js",
+    "runtime-main.js.map": "/ActivityTrackingMobile/static/js/runtime-main.054b5a67.js.map",
+    "static/js/2.5f8e5cbb.chunk.js": "/ActivityTrackingMobile/static/js/2.5f8e5cbb.chunk.js",
+    "static/js/2.5f8e5cbb.chunk.js.map": "/ActivityTrackingMobile/static/js/2.5f8e5cbb.chunk.js.map",
+    "static/js/3.bb3dd4f7.chunk.js": "/ActivityTrackingMobile/static/js/3.bb3dd4f7.chunk.js",
+    "static/js/3.bb3dd4f7.chunk.js.map": "/ActivityTrackingMobile/static/js/3.bb3dd4f7.chunk.js.map",
     "index.html": "/ActivityTrackingMobile/index.html",
     "service-worker.js": "/ActivityTrackingMobile/service-worker.js",
     "service-worker.js.map": "/ActivityTrackingMobile/service-worker.js.map",
     "static/css/main.a1829319.chunk.css.map": "/ActivityTrackingMobile/static/css/main.a1829319.chunk.css.map",
-    "static/js/2.8b84b3bf.chunk.js.LICENSE.txt": "/ActivityTrackingMobile/static/js/2.8b84b3bf.chunk.js.LICENSE.txt"
+    "static/js/2.5f8e5cbb.chunk.js.LICENSE.txt": "/ActivityTrackingMobile/static/js/2.5f8e5cbb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a03b0f1f.js",
-    "static/js/2.8b84b3bf.chunk.js",
+    "static/js/runtime-main.054b5a67.js",
+    "static/js/2.5f8e5cbb.chunk.js",
     "static/css/main.a1829319.chunk.css",
-    "static/js/main.26923997.chunk.js"
+    "static/js/main.695faf15.chunk.js"
   ]
 }
