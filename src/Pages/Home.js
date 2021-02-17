@@ -12,6 +12,9 @@ if (window.DeviceMotionEvent) {
 }
 
 let k
+let lastInsert = new Date()
+let frequency = 100
+// let data = []
 
 class Home extends React.Component {
     constructor(props){
@@ -39,11 +42,14 @@ class Home extends React.Component {
     }
     handleMotion = (e, obj)=>{
         if(this.state.recording){
-            k = db.ref('users/'+uid+'/').push().key
-            db.ref('users/'+uid+'/'+k).set({
-                accel: {acceleration: Math.random(), accelerationIncludingGravity: Math.random(), rotationRate: Math.random()},
-                ...obj
-            });
+            if(new Date() - lastInsert > frequency){
+                k = db.ref('users/'+uid+'/').push().key
+                db.ref('users/'+uid+'/'+k).set({
+                    accel: {acceleration: Math.random(), accelerationIncludingGravity: Math.random(), rotationRate: Math.random()},
+                    ...obj
+                });
+                lastInsert = new Date()
+            }
         }
     }
     render (){
