@@ -1,6 +1,9 @@
 import React from 'react';
 import '../App.css';
 import {db, uid} from '../index'
+import Button from '@material-ui/core/Button';
+import PlayArrow from '@material-ui/icons/PlayArrow';
+import Pause from '@material-ui/icons/Pause';
 
 if (window.DeviceOrientationEvent) {
     console.log("DeviceOrientation is supported");
@@ -60,6 +63,14 @@ class Home extends React.Component {
                         onClick={this.startAccel}>
                         {this.state.recording ? 'Stop' : 'Start'}
                     </button>
+                    <Button
+                        variant="contained"
+                        color= {this.state.recording ? 'secondary' : 'primary'}
+                        size="small"
+                        startIcon={this.state.recording ? <Pause></Pause> : <PlayArrow />}
+                    >
+                        {this.state.recording ? 'Stop' : 'Start'}
+                    </Button>
                 </header>
             </div>
         );
