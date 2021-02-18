@@ -1,8 +1,8 @@
 import React from 'react';
 import '../App.css';
 import {db, uid} from '../index'
-import Button from '@material-ui/core/Button';
 import PlayArrow from '@material-ui/icons/PlayArrow';
+import Button from '@material-ui/core/Button';
 import Pause from '@material-ui/icons/Pause';
 
 if (window.DeviceOrientationEvent) {
@@ -58,16 +58,17 @@ class Home extends React.Component {
     render (){
         return (
             <div className="App">
-                <header className="App-header">
-                    <button style={{ backgroundColor: this.state.recording ? 'red' : 'green', height: '20vh', width:'20vh', border:'0', borderRadius: '50%', fontWeight: 'bolder', fontSize:'30px', boxShadow: '0 0 solid black', color:'white' }}
+                <header className="App-header" style={{backgroundColor:'white'}}>
+                    {/* <button style={{ backgroundColor: this.state.recording ? 'red' : 'green', height: '20vh', width:'20vh', border:'0', borderRadius: '50%', fontWeight: 'bolder', fontSize:'30px', boxShadow: '0 0 solid black', color:'white' }}
                         onClick={this.startAccel}>
                         {this.state.recording ? 'Stop' : 'Start'}
-                    </button>
+                    </button> */}
                     <Button
+                        style={{ backgroundColor: this.state.recording ? 'red' : 'green', height: '20vh', width:'20vh', borderRadius: '50%', fontWeight: 'bolder', fontSize:'30px', color:'white' }}
                         variant="contained"
-                        color= {this.state.recording ? 'secondary' : 'primary'}
                         size="small"
-                        startIcon={this.state.recording ? <Pause></Pause> : <PlayArrow />}
+                        startIcon={this.state.recording ? <Pause style={{ fontSize: 40 }} /> : <PlayArrow style={{ fontSize: 40 }} />}
+                        onClick={this.startAccel}
                     >
                         {this.state.recording ? 'Stop' : 'Start'}
                     </Button>
