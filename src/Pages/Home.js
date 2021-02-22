@@ -1,9 +1,11 @@
 import React from 'react';
 import '../App.css';
-import {db, uid} from '../index'
+import firebase from 'firebase'
 import PlayArrow from '@material-ui/icons/PlayArrow';
 import Button from '@material-ui/core/Button';
 import Pause from '@material-ui/icons/Pause';
+import { TextField } from '@material-ui/core';
+import { initAuth } from '../Helpers/Auth';
 
 if (window.DeviceOrientationEvent) {
     console.log("DeviceOrientation is supported");
@@ -22,7 +24,7 @@ let frequency = 100
 class Home extends React.Component {
     constructor(props){
         super(props)
-        this.state = {recording: false}
+        this.state = {recording: false, uid: initAuth(firebase.database())}
     }
     startAccel = ()=>{
         if(this.state.recording === false){
@@ -46,8 +48,8 @@ class Home extends React.Component {
     handleMotion = (e, obj)=>{
         if(this.state.recording){
             if(new Date() - lastInsert > frequency){
-                k = db.ref('users/'+uid+'/').push().key
-                db.ref('users/'+uid+'/'+k).set({
+                k = firebase.database().ref('users/'+this.state.uid+'/').push().key
+                firebase.database().ref('users/'+this.state.uid+'/'+k).set({
                     accel: {acceleration: Math.random(), accelerationIncludingGravity: Math.random(), rotationRate: Math.random()},
                     ...obj
                 });
@@ -63,6 +65,9 @@ class Home extends React.Component {
                         onClick={this.startAccel}>
                         {this.state.recording ? 'Stop' : 'Start'}
                     </button> */}
+                    <form noValidate autoComplete="off">
+                        <TextField id="outlined-basic" label="UID" variant="outlined" value={this.state.uid} onChange={(e)=>{this.setState({uid:e.target.value})}} />
+                    </form>
                     <Button
                         style={{ backgroundColor: this.state.recording ? 'red' : 'green', height: '20vh', width:'20vh', borderRadius: '50%', fontWeight: 'bolder', fontSize:'30px', color:'white' }}
                         variant="contained"
