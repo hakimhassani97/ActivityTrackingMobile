@@ -23,19 +23,19 @@ export default function Header(props) {
             onKeyDown={()=>setDrawer(false)}
         >
             <List>
-                <Link onClick={()=>{TitleBehaviour.setTitle()}} to={Routes.home} style={{textDecoration:'none', color:'gray'}}>
+                <Link to={Routes.home} style={{textDecoration:'none', color:'gray'}}>
                     <ListItem button key={'Home'}>
                         <ListItemIcon>{icons[2]}</ListItemIcon>
                         <ListItemText primary={'Home'} />
                     </ListItem>
                 </Link>
-                <Link onClick={()=>{TitleBehaviour.setTitle('Profile')}} to={Routes.profile} style={{textDecoration:'none', color:'gray'}}>
+                <Link to={Routes.profile} style={{textDecoration:'none', color:'gray'}}>
                     <ListItem button key={'Profile'}>
                         <ListItemIcon>{icons[0]}</ListItemIcon>
                         <ListItemText primary={'Profile'} />
                     </ListItem>
                 </Link>
-                <Link onClick={()=>{TitleBehaviour.setTitle('Notifications')}} to={Routes.notifications} style={{textDecoration:'none', color:'gray'}}>
+                <Link to={Routes.notifications} style={{textDecoration:'none', color:'gray'}}>
                     <ListItem button key={'Notifications'}>
                         <ListItemIcon>{icons[1]}</ListItemIcon>
                         <ListItemText primary={'Notifications'} />
