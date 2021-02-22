@@ -45,5 +45,4 @@ serviceWorkerRegistration.register();
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-export const db = firebase.database()
-export const uid = 'hakimhassani97'
+// export const db = firebase.database()
