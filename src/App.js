@@ -17,12 +17,19 @@ function App() {
       <Router history={history}>
         <Header></Header>
         <Switch>
-          <Route path={Routes.home}>
-            <Home></Home>
+          <Route path={['', Routes.home]}>
+            {()=>{
+              setTitle()
+              return <Home></Home>
+            }}
           </Route>
           <Route path={Routes.profile}>
-            <Profile></Profile>
+            {()=>{
+              setTitle('Profile')
+              return <Profile></Profile>
+            }}
           </Route>
+          <Route path={Routes.notifications}></Route>
         </Switch>
       </Router>
     </>
