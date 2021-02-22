@@ -4,8 +4,9 @@ import firebase from 'firebase'
 import PlayArrow from '@material-ui/icons/PlayArrow';
 import Button from '@material-ui/core/Button';
 import Pause from '@material-ui/icons/Pause';
-import { TextField } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
 import { initAuth } from '../Helpers/Auth';
+import ThemeConfig from '../Constantes/Theme'
 
 if (window.DeviceOrientationEvent) {
     console.log("DeviceOrientation is supported");
@@ -61,22 +62,22 @@ class Home extends React.Component {
         return (
             <div className="App">
                 <header className="App-header" style={{backgroundColor:'white'}}>
-                    {/* <button style={{ backgroundColor: this.state.recording ? 'red' : 'green', height: '20vh', width:'20vh', border:'0', borderRadius: '50%', fontWeight: 'bolder', fontSize:'30px', boxShadow: '0 0 solid black', color:'white' }}
-                        onClick={this.startAccel}>
-                        {this.state.recording ? 'Stop' : 'Start'}
-                    </button> */}
-                    <form noValidate autoComplete="off">
-                        <TextField id="outlined-basic" label="UID" variant="outlined" value={this.state.uid} onChange={(e)=>{this.setState({uid:e.target.value})}} />
-                    </form>
-                    <Button
-                        style={{ backgroundColor: this.state.recording ? 'red' : 'green', height: '20vh', width:'20vh', borderRadius: '50%', fontWeight: 'bolder', fontSize:'30px', color:'white' }}
+                    {/* <Button
+                        style={{ backgroundColor: this.state.recording ? ThemeConfig.danger : ThemeConfig.success, height: '20vh', width:'20vh', borderRadius: '50%', fontWeight: 'bolder', fontSize:'30px', color:'white' }}
                         variant="contained"
                         size="small"
                         startIcon={this.state.recording ? <Pause style={{ fontSize: 40 }} /> : <PlayArrow style={{ fontSize: 40 }} />}
                         onClick={this.startAccel}
                     >
                         {this.state.recording ? 'Stop' : 'Start'}
-                    </Button>
+                    </Button> */}
+                    <div style={{display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
+                        <IconButton
+                            onClick={this.startAccel}
+                            style={{backgroundColor: this.state.recording ? ThemeConfig.danger : ThemeConfig.success, color:'white'}}>
+                            {this.state.recording ? <Pause style={{ fontSize: 40 }} /> : <PlayArrow style={{ fontSize: 40 }} />}
+                        </IconButton>
+                    </div>
                 </header>
             </div>
         );

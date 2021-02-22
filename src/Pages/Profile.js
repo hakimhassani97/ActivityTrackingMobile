@@ -24,7 +24,7 @@ class Profile extends React.Component {
     }
     render (){
         return (
-            <div style={{marginTop:'60px', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+            <div style={{marginTop:'60px', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'4% 0'}}>
                 <Avatar alt="Remy Sharp" src={require('../Images/avatar.jpg').default} style={{marginBottom:'1rem', height:'100px', width:'100px'}}></Avatar>
                 <TextField onChange={(e)=>{this.setState({firstname:e.target.value})}} id="firstname" value={this.state.firstname} label="First name" variant="outlined" style={{marginBottom:'1rem', width:'70%'}} />
                 <TextField onChange={(e)=>{this.setState({lastname:e.target.value})}} id="lastname" value={this.state.lastname} label="Last name" variant="outlined" style={{marginBottom:'1rem', width:'70%'}} />
