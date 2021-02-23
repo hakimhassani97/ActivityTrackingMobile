@@ -17,7 +17,7 @@ function App() {
       <Router history={history}>
         <Header></Header>
         <Switch>
-          <Route path={['', Routes.home]}>
+          <Route path={[Routes.base, Routes.home]} exact>
             {()=>{
               setTitle()
               return <Home></Home>
