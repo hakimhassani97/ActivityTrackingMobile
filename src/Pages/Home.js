@@ -50,7 +50,7 @@ class Home extends React.Component {
         if(this.state.recording){
             if(new Date() - lastInsert > frequency){
                 k = firebase.database().ref('users/'+this.state.uid+'/').push().key
-                firebase.database().ref('users/'+this.state.uid+'/'+k).set({
+                firebase.database().ref('users/'+this.state.uid+'/data/'+k).set({
                     accel: {acceleration: Math.random(), accelerationIncludingGravity: Math.random(), rotationRate: Math.random()},
                     ...obj
                 });
