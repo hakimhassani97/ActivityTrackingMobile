@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-import { Route, BrowserRouter as Router, Switch, useHistory } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Header from './Components/Header';
 import Routes from './Constantes/Routes';
 import Home from './Pages/Home';
+import Login from './Pages/Login';
 import Profile from './Pages/Profile';
+import Register from './Pages/Register';
+import { createBrowserHistory } from 'history';
+import { PrivateRoute, PublicRoute } from './Helpers/Auth';
 
 let TitleBehaviour = {}
+let history = createBrowserHistory()
 
 function App() {
-  var history = useHistory()
   let [title, setTitle] = useState(null)
   TitleBehaviour.title = title
   TitleBehaviour.setTitle = setTitle
@@ -17,18 +21,26 @@ function App() {
       <Router history={history}>
         <Header></Header>
         <Switch>
-          <Route path={[Routes.base, Routes.home]} exact>
-            {()=>{
+          <PrivateRoute path={[Routes.base, Routes.home]} exact component={()=>{
               setTitle()
               return <Home></Home>
-            }}
-          </Route>
-          <Route path={Routes.profile}>
-            {()=>{
+            }}>
+          </PrivateRoute>
+          <PrivateRoute path={Routes.profile} component={()=>{
               setTitle('Profile')
               return <Profile></Profile>
-            }}
-          </Route>
+            }}>
+          </PrivateRoute>
+          <PublicRoute path={Routes.login} component={()=>{
+              setTitle('Login')
+              return <Login></Login>
+            }}>
+          </PublicRoute>
+          <PublicRoute path={Routes.register} component={()=>{
+              setTitle('Register')
+              return <Register></Register>
+            }}>
+          </PublicRoute>
           <Route path={Routes.notifications}></Route>
         </Switch>
       </Router>
@@ -36,5 +48,5 @@ function App() {
   );
 }
 
-export {TitleBehaviour}
+export {TitleBehaviour, history}
 export default App;
