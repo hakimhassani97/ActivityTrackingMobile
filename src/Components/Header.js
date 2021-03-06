@@ -7,15 +7,18 @@ import { Divider, List, ListItem, ListItemIcon, SwipeableDrawer, Typography } fr
 import ListItemText from '@material-ui/core/ListItemText';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import HomeIcon from '@material-ui/icons/Home';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Routes from '../Constantes/Routes';
 import { TitleBehaviour } from '../App';
+import { logout } from '../Helpers/Auth';
 
-const icons = [<AccountCircleIcon />, <NotificationsIcon />, <HomeIcon />]
+const icons = [<AccountCircleIcon />, <NotificationsIcon />, <HomeIcon />, <ExitToAppIcon />]
 
 export default function Header(props) {
     let [drawer, setDrawer] = useState(false)
+    let [redirect, setRedirect] = useState(false)
     const LList = () => (
         <div
             role="presentation"
@@ -39,6 +42,16 @@ export default function Header(props) {
                     <ListItem button key={'Notifications'}>
                         <ListItemIcon>{icons[1]}</ListItemIcon>
                         <ListItemText primary={'Notifications'} />
+                    </ListItem>
+                </Link>
+                <Link style={{textDecoration:'none', color:'gray'}}
+                    onClick={()=>{
+                        logout()
+                        setRedirect(true)
+                    }}>
+                    <ListItem button key={'Logout'}>
+                        <ListItemIcon>{icons[3]}</ListItemIcon>
+                        <ListItemText primary={'Logout'} />
                     </ListItem>
                 </Link>
             </List>
@@ -68,6 +81,7 @@ export default function Header(props) {
                     <div style={{ flexGrow: 1 }} />
                 </Toolbar>
             </AppBar>
+            {redirect && <Redirect to={Routes.login}></Redirect>}
         </>
     )
 }
