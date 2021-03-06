@@ -2,7 +2,6 @@ import React from 'react';
 import '../App.css';
 import firebase from 'firebase'
 import PlayArrow from '@material-ui/icons/PlayArrow';
-import Button from '@material-ui/core/Button';
 import Pause from '@material-ui/icons/Pause';
 import { IconButton } from '@material-ui/core';
 import { initAuth } from '../Helpers/Auth';

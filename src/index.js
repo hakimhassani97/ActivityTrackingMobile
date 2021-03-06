@@ -12,6 +12,7 @@ import "firebase/analytics";
 // Add the Firebase products that you want to use
 import "firebase/auth";
 import "firebase/firestore";
+import { initAuth } from './Helpers/Auth';
 // TODO: Replace the following with your app's Firebase project configuration
 // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
 var firebaseConfig = {
@@ -44,5 +45,6 @@ serviceWorkerRegistration.register();
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+initAuth(firebase.database())
 
 // export const db = firebase.database()
