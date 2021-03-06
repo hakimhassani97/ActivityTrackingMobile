@@ -4,8 +4,9 @@ import firebase from 'firebase'
 import PlayArrow from '@material-ui/icons/PlayArrow';
 import Pause from '@material-ui/icons/Pause';
 import { IconButton } from '@material-ui/core';
-import { initAuth } from '../Helpers/Auth';
 import ThemeConfig from '../Constantes/Theme'
+import { auth } from '..';
+import { isLoggedIn } from '../Helpers/Auth';
 
 if (window.DeviceOrientationEvent) {
     console.log("DeviceOrientation is supported");
@@ -24,7 +25,7 @@ let frequency = 100
 class Home extends React.Component {
     constructor(props){
         super(props)
-        this.state = {recording: false, uid: initAuth(firebase.database())}
+        this.state = {recording: false, uid: isLoggedIn()?.uid}
     }
     startAccel = ()=>{
         if(this.state.recording === false){

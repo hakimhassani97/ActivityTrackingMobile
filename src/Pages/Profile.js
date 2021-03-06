@@ -1,15 +1,12 @@
 import React from 'react';
 import { Avatar, Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@material-ui/core';
 import firebase from 'firebase'
-import { initAuth } from '../Helpers/Auth';
+import {isLoggedIn} from '../Helpers/Auth'
 
 class Profile extends React.Component {
     constructor(props){
         super(props)
-        this.state = {uid: initAuth(firebase.database()), firstname:'', lastname:'', age:'', gender:'Male', weight:''}
-    }
-    componentDidMount = ()=>{
-        this.loadUser()
+        this.state = {uid: isLoggedIn()?.uid, firstname:'', lastname:'', age:'', gender:'Male', weight:''}
     }
     loadUser = ()=>{
         return firebase.database().ref('users/'+this.state.uid+'/profile').once('value').then((snapshot) => {
@@ -42,7 +39,7 @@ class Profile extends React.Component {
                     </Select>
                 </FormControl>
                 <TextField onChange={(e)=>{this.setState({weight:e.target.value})}} id="weight" value={this.state.weight} label="Weight" variant="outlined" style={{marginBottom:'1rem', width:'70%'}} />
-                <Button onClick={()=>{this.saveUser()}} variant="contained" href="#outlined-buttons" color="primary" style={{marginBottom:'1rem', width:'70%'}}>
+                <Button onClick={()=>{this.saveUser()}} variant="contained" color="primary" style={{marginBottom:'1rem', width:'70%'}}>
                     Save
                 </Button>
             </div>
