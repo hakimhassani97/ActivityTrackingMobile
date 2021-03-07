@@ -30,7 +30,7 @@ class Profile extends React.Component {
             if(e.target.files.length>0){
                 var file = e.target.files[0]
                 this.setState({file})
-                var storageRef = firebase.storage().ref('images/');
+                var storageRef = firebase.storage().ref('images/'+this.state.uid);
                 storageRef.put(file).then((snapshot) => {
                     snapshot.ref.getDownloadURL()
                     .then(url=>{

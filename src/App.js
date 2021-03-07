@@ -21,7 +21,7 @@ function App() {
       <Router history={history}>
         <Header></Header>
         <Switch>
-          <PrivateRoute path={[Routes.base, Routes.home]} exact component={()=>{
+          <PrivateRoute path={[Routes.base, Routes.base_mobile, Routes.home]} exact component={()=>{
               setTitle()
               return <Home></Home>
             }}>
@@ -44,6 +44,12 @@ function App() {
           <PrivateRoute path={Routes.notifications} component={()=>{
               setTitle('Notifications')
               return ''
+            }}>
+          </PrivateRoute>
+          {/* web routes */}
+          <PrivateRoute path={[Routes.whome]} exact component={()=>{
+              setTitle()
+              return <Home></Home>
             }}>
           </PrivateRoute>
         </Switch>
