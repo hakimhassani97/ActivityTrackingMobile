@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ActivityTrackingMobile/static/css/main.a1829319.chunk.css",
-    "main.js": "/ActivityTrackingMobile/static/js/main.60ac96f6.chunk.js",
-    "main.js.map": "/ActivityTrackingMobile/static/js/main.60ac96f6.chunk.js.map",
+    "main.js": "/ActivityTrackingMobile/static/js/main.ff87186c.chunk.js",
+    "main.js.map": "/ActivityTrackingMobile/static/js/main.ff87186c.chunk.js.map",
     "runtime-main.js": "/ActivityTrackingMobile/static/js/runtime-main.2bb713d3.js",
     "runtime-main.js.map": "/ActivityTrackingMobile/static/js/runtime-main.2bb713d3.js.map",
     "static/js/2.67c70336.chunk.js": "/ActivityTrackingMobile/static/js/2.67c70336.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.2bb713d3.js",
     "static/js/2.67c70336.chunk.js",
     "static/css/main.a1829319.chunk.css",
-    "static/js/main.60ac96f6.chunk.js"
+    "static/js/main.ff87186c.chunk.js"
   ]
 }
