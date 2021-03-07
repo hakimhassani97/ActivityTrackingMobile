@@ -1,25 +1,24 @@
 {
   "files": {
     "main.css": "/ActivityTrackingMobile/static/css/main.a1829319.chunk.css",
-    "main.js": "/ActivityTrackingMobile/static/js/main.7398b4f9.chunk.js",
-    "main.js.map": "/ActivityTrackingMobile/static/js/main.7398b4f9.chunk.js.map",
-    "runtime-main.js": "/ActivityTrackingMobile/static/js/runtime-main.2bb713d3.js",
-    "runtime-main.js.map": "/ActivityTrackingMobile/static/js/runtime-main.2bb713d3.js.map",
-    "static/js/2.67c70336.chunk.js": "/ActivityTrackingMobile/static/js/2.67c70336.chunk.js",
-    "static/js/2.67c70336.chunk.js.map": "/ActivityTrackingMobile/static/js/2.67c70336.chunk.js.map",
-    "static/js/3.8b8ec130.chunk.js": "/ActivityTrackingMobile/static/js/3.8b8ec130.chunk.js",
-    "static/js/3.8b8ec130.chunk.js.map": "/ActivityTrackingMobile/static/js/3.8b8ec130.chunk.js.map",
+    "main.js": "/ActivityTrackingMobile/static/js/main.a3fc09f5.chunk.js",
+    "main.js.map": "/ActivityTrackingMobile/static/js/main.a3fc09f5.chunk.js.map",
+    "runtime-main.js": "/ActivityTrackingMobile/static/js/runtime-main.d2d4a5bf.js",
+    "runtime-main.js.map": "/ActivityTrackingMobile/static/js/runtime-main.d2d4a5bf.js.map",
+    "static/js/2.ef508a43.chunk.js": "/ActivityTrackingMobile/static/js/2.ef508a43.chunk.js",
+    "static/js/2.ef508a43.chunk.js.map": "/ActivityTrackingMobile/static/js/2.ef508a43.chunk.js.map",
+    "static/js/3.e7bec266.chunk.js": "/ActivityTrackingMobile/static/js/3.e7bec266.chunk.js",
+    "static/js/3.e7bec266.chunk.js.map": "/ActivityTrackingMobile/static/js/3.e7bec266.chunk.js.map",
     "index.html": "/ActivityTrackingMobile/index.html",
     "service-worker.js": "/ActivityTrackingMobile/service-worker.js",
     "service-worker.js.map": "/ActivityTrackingMobile/service-worker.js.map",
     "static/css/main.a1829319.chunk.css.map": "/ActivityTrackingMobile/static/css/main.a1829319.chunk.css.map",
-    "static/js/2.67c70336.chunk.js.LICENSE.txt": "/ActivityTrackingMobile/static/js/2.67c70336.chunk.js.LICENSE.txt",
-    "static/media/avatar.jpg": "/ActivityTrackingMobile/static/media/avatar.3a02f184.jpg"
+    "static/js/2.ef508a43.chunk.js.LICENSE.txt": "/ActivityTrackingMobile/static/js/2.ef508a43.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.2bb713d3.js",
-    "static/js/2.67c70336.chunk.js",
+    "static/js/runtime-main.d2d4a5bf.js",
+    "static/js/2.ef508a43.chunk.js",
     "static/css/main.a1829319.chunk.css",
-    "static/js/main.7398b4f9.chunk.js"
+    "static/js/main.a3fc09f5.chunk.js"
   ]
 }
