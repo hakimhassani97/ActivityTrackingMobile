@@ -41,7 +41,11 @@ function App() {
               return <Register></Register>
             }}>
           </PublicRoute>
-          <Route path={Routes.notifications}></Route>
+          <PrivateRoute path={Routes.notifications} component={()=>{
+              setTitle('Notifications')
+              return ''
+            }}>
+          </PrivateRoute>
         </Switch>
       </Router>
     </>

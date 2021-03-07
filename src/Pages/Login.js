@@ -8,6 +8,7 @@ import { auth } from '..';
 import { Redirect } from 'react-router';
 import Routes from '../Constantes/Routes';
 import { login } from '../Helpers/Auth';
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
     constructor(props){
@@ -50,6 +51,11 @@ class Login extends React.Component {
                 <Button onClick={()=>{this.login()}} variant="contained" color="primary" style={{marginBottom:'1rem', width:'70%'}}>
                     Login
                 </Button>
+                <Link to={Routes.register} style={{textDecoration:'none', color:'gray'}}>
+                    <Button variant="contained" color="secondary">
+                        Register
+                    </Button>
+                </Link>
                 <Snackbar open={this.state.open} autoHideDuration={3000} onClose={this.handleClose}>
                     <MuiAlert onClose={this.handleClose} elevation={6} variant="filled" severity={this.state.saverity}>{this.state.msg}</MuiAlert>
                 </Snackbar>
