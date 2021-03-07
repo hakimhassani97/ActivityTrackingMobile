@@ -8,6 +8,7 @@ import Profile from './Pages/Profile';
 import Register from './Pages/Register';
 import { createBrowserHistory } from 'history';
 import { PrivateRoute, PublicRoute } from './Helpers/Auth';
+import WHome from './Web/WHome';
 
 let TitleBehaviour = {}
 let history = createBrowserHistory()
@@ -47,9 +48,9 @@ function App() {
             }}>
           </PrivateRoute>
           {/* web routes */}
-          <PrivateRoute path={[Routes.whome]} exact component={()=>{
+          <PrivateRoute path={[Routes.base_web, Routes.whome]} exact component={()=>{
               setTitle()
-              return <Home></Home>
+              return <WHome></WHome>
             }}>
           </PrivateRoute>
         </Switch>
