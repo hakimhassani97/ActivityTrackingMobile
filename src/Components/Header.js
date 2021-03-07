@@ -12,7 +12,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import { Link, Redirect } from 'react-router-dom';
 import Routes from '../Constantes/Routes';
 import { TitleBehaviour } from '../App';
-import { logout } from '../Helpers/Auth';
+import { isLoggedIn, logout } from '../Helpers/Auth';
 
 const icons = [<AccountCircleIcon />, <NotificationsIcon />, <HomeIcon />, <ExitToAppIcon />]
 
@@ -72,7 +72,7 @@ export default function Header(props) {
             </React.Fragment>
             <AppBar position="fixed" color="primary" style={{ top: 0 }}>
                 <Toolbar>
-                    <IconButton edge="start" color="inherit" aria-label="open drawer" onClick={() => { setDrawer(true) }}>
+                    <IconButton edge="start" color="inherit" aria-label="open drawer" onClick={() => { let c = isLoggedIn() ? setDrawer(true) : '' }}>
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" color="inherit">

@@ -21,7 +21,7 @@ class Login extends React.Component {
                 // Signed in
                 var user = userCredential.user
                 login(user)
-                this.setState({email:'', password:'', open:true, saverity:'success', msg:'Logged in succefuly', backdrop:true}, ()=>{
+                this.setState({email:'', password:'', open:true, saverity:'success', msg:'Logged in successfully', backdrop:true}, ()=>{
                     setTimeout(() => {
                         this.setState({redirect:true})
                     }, 3000);

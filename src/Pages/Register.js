@@ -21,7 +21,7 @@ class Register extends React.Component {
                 // Signed in 
                 var user = userCredential.user;
                 login(user)
-                this.setState({email:'', password:'', open:true, saverity:'success', msg:'User created succefuly', backdrop:true}, ()=>{
+                this.setState({email:'', password:'', open:true, saverity:'success', msg:'User created successfully', backdrop:true}, ()=>{
                     setTimeout(() => {
                         this.setState({redirect:true})
                     }, 3000);

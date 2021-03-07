@@ -51,7 +51,7 @@ class Home extends React.Component {
             if(new Date() - lastInsert > frequency){
                 k = firebase.database().ref('users/'+this.state.uid+'/').push().key
                 firebase.database().ref('users/'+this.state.uid+'/data/'+k).set({
-                    accel: {acceleration: Math.random(), accelerationIncludingGravity: Math.random(), rotationRate: Math.random()},
+                    accel: {acceleration: e.acceleration, accelerationIncludingGravity: e.accelerationIncludingGravity, rotationRate: e.rotationRate},
                     ...obj
                 });
                 lastInsert = new Date()
