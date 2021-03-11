@@ -13,5 +13,10 @@ let Routes = {
     register: base_mobile+'/Register',
     notifications: base_mobile+'/Notifications',
     whome: base_web+'/Home',
+    wstats: base_web+'/Statistics',
+    wstep: base_web+'/Steps',
+    wsitting: base_web+'/Sitting',
+    wtemp: base_web+'/Temperature',
+    wdoor: base_web+'/Door'
 }
 export default Routes
