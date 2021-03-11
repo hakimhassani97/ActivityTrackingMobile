@@ -9,6 +9,11 @@ import Register from './Pages/Register';
 import { createBrowserHistory } from 'history';
 import { PrivateRoute, PublicRoute } from './Helpers/Auth';
 import WHome from './Web/WHome';
+import Stats from './Web/Stats';
+import Step from './Web/Step';
+import Sitting from './Web/Sitting';
+import Temp from './Web/Temp';
+import Door from './Web/Door';
 
 let TitleBehaviour = {}
 let history = createBrowserHistory()
@@ -49,8 +54,33 @@ function App() {
           </PrivateRoute>
           {/* web routes */}
           <PrivateRoute path={[Routes.base_web, Routes.whome]} exact component={()=>{
-              setTitle()
+              setTitle('List of the elderly')
               return <WHome></WHome>
+            }}>
+          </PrivateRoute>
+          <PrivateRoute path={[Routes.wstats+'/:uid']} exact component={(props)=>{
+              setTitle('Stats of the elderly')
+              return <Stats {...props}></Stats>
+            }}>
+          </PrivateRoute>
+          <PrivateRoute path={[Routes.wsitting+'/:uid']} exact component={(props)=>{
+              setTitle('Sitting tracking of the elderly')
+              return <Sitting {...props}></Sitting>
+            }}>
+          </PrivateRoute>
+          <PrivateRoute path={[Routes.wstep+'/:uid']} exact component={(props)=>{
+              setTitle('Walk tracking of the elderly')
+              return <Step {...props}></Step>
+            }}>
+          </PrivateRoute>
+          <PrivateRoute path={[Routes.wtemp+'/:uid']} exact component={(props)=>{
+              setTitle('Temperature tracking')
+              return <Temp {...props}></Temp>
+            }}>
+          </PrivateRoute>
+          <PrivateRoute path={[Routes.wdoor+'/:uid']} exact component={(props)=>{
+              setTitle('Door opening tracking')
+              return <Door {...props}></Door>
             }}>
           </PrivateRoute>
         </Switch>
