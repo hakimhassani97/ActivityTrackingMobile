@@ -1,12 +1,13 @@
 import React from 'react';
-import { Avatar, Button, FormControl, InputLabel, MenuItem, Select, TextField } from '@material-ui/core';
+import { Avatar, Button, FormControl, InputLabel, MenuItem, Select, Snackbar, TextField } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
 import firebase from 'firebase'
 import {isLoggedIn} from '../Helpers/Auth'
 
 class Profile extends React.Component {
     constructor(props){
         super(props)
-        this.state = {uid: isLoggedIn()?.uid, firstname:'', lastname:'', age:'', gender:'Male', weight:'', img:'', file:null}
+        this.state = {uid: isLoggedIn()?.uid, firstname:'', lastname:'', age:'', gender:'Male', weight:'', img:'', file:null, severity:'', msg:'', open:false}
     }
     componentDidMount = ()=>{
         this.loadUser()
@@ -18,9 +19,12 @@ class Profile extends React.Component {
         })
     }
     saveUser = ()=>{
-        firebase.database().ref('users/'+this.state.uid+'/profile').set({
+        firebase.database().ref('users/'+this.state.uid+'/profile').update({
             firstname:this.state.firstname, lastname:this.state.lastname, age:this.state.age, gender:this.state.gender, weight:this.state.weight,
             img:this.state.img
+        })
+        .then(()=>{
+            this.setState({open:true, saverity:'success', msg:'Profile updated successfully'})
         })
     }
     uploadImg = ()=>{
@@ -38,6 +42,7 @@ class Profile extends React.Component {
                             img:url
                         })
                         this.setState({img:url})
+                        this.setState({open:true, saverity:'success', msg:'Profile picture updated successfully'})
                     })
                 });
             }
@@ -45,10 +50,16 @@ class Profile extends React.Component {
         input.click()
         input.remove()
     }
+    handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        this.setState({open:false});
+    };
     render (){
         return (
             <div style={{marginTop:'60px', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'4% 0'}}>
-                <Avatar onClick={()=>{this.uploadImg()}} alt="Remy Sharp" src={this.state.img} style={{marginBottom:'1rem', height:'100px', width:'100px'}}></Avatar>
+                <Avatar onClick={()=>{this.uploadImg()}} alt={this.state.firstname} src={this.state.img} style={{marginBottom:'1rem', height:'100px', width:'100px'}}></Avatar>
                 <TextField onChange={(e)=>{this.setState({firstname:e.target.value})}} id="firstname" value={this.state.firstname} label="First name" variant="outlined" style={{marginBottom:'1rem', width:'70%'}} />
                 <TextField onChange={(e)=>{this.setState({lastname:e.target.value})}} id="lastname" value={this.state.lastname} label="Last name" variant="outlined" style={{marginBottom:'1rem', width:'70%'}} />
                 <TextField onChange={(e)=>{this.setState({age:e.target.value})}} id="age" value={this.state.age} label="Age" variant="outlined" style={{marginBottom:'1rem', width:'70%'}} />
@@ -68,6 +79,9 @@ class Profile extends React.Component {
                 <Button onClick={()=>{this.saveUser()}} variant="contained" color="primary" style={{marginBottom:'1rem', width:'70%'}}>
                     Save
                 </Button>
+                <Snackbar open={this.state.open} autoHideDuration={3000} onClose={this.handleClose}>
+                    <MuiAlert onClose={this.handleClose} elevation={6} variant="filled" severity={this.state.saverity}>{this.state.msg}</MuiAlert>
+                </Snackbar>
             </div>
         );
     }
