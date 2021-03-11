@@ -55,6 +55,16 @@ class Home extends React.Component {
                     ...obj
                 });
                 lastInsert = new Date()
+                // update steps
+                var res = Math.sqrt(Math.pow(obj.gyro?.alpha, 2), Math.pow(obj.gyro?.beta, 2), Math.pow(obj.gyro?.gamma, 2))
+                if(res>200 && lastInsert) {
+                    var dd = new Date().toLocaleDateString().replace(/\//g, '-')
+                    firebase.database().ref('users/' + this.state.uid + '/profile/steps/'+dd)
+                    .once('value', (snapshot) => {
+                        var steps = snapshot.val()?.steps || 0
+                        firebase.database().ref('users/' + this.state.uid + '/profile/steps/'+dd).update({steps:steps+1})
+                    })
+                }
             }
         }
     }
