@@ -1,8 +1,11 @@
 # A PWA for the tracking of the activities of elderly people
 
+# A working version of the code is available here :  
+[hakimhassani97/ActivityTrackingMobile](https://github.com/hakimhassani97/ActivityTrackingMobile)
+
 # Configuration steps :
 
-Creating the Firebase project on :
+Creating the Firebase project on :  
 [Firebase console](https://console.firebase.google.com/)
 
 Copy the firebase config json object in this format and replace it in `index.js` :  
@@ -30,7 +33,7 @@ To deploy the app on Github Pages :
 `npm run deploy`
 
 Access the mobile app PWA through HTTPS required :  
-[text](https:example.com/ActivityTrackingMobile/mobile/Home)
+[Mobile app](https:example.com/ActivityTrackingMobile/mobile/Home)
 
 Access the admin web app :  
-[text](https:example.com/ActivityTrackingMobile/web/Home)
+[Web app](https:example.com/ActivityTrackingMobile/web/Home)
