@@ -6,16 +6,16 @@ Creating the Firebase app on :
 [Firebase console](https://console.firebase.google.com/)
 
 Copy the firebase config json object in this format and replace it in `index.js` :  
-`{
-  apiKey: "xxxxxxxx",
-  authDomain: "xxxxxxxx",
-  databaseURL: "xxxxxxxx",
-  projectId: "xxxxxxxx",
-  storageBucket: "xxxxxxxx",
-  messagingSenderId: "xxxxxxxx",
-  appId: "xxxxxxxx",
-  measurementId: "xxxxxxxx"
-}`
+`{  
+  apiKey: "xxxxxxxx",  
+  authDomain: "xxxxxxxx",  
+  databaseURL: "xxxxxxxx",  
+  projectId: "xxxxxxxx",  
+  storageBucket: "xxxxxxxx",  
+  messagingSenderId: "xxxxxxxx",  
+  appId: "xxxxxxxx",  
+  measurementId: "xxxxxxxx"  
+}`  
 
 Install the dependencies :  
 `npm install`
