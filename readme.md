@@ -2,7 +2,7 @@
 
 # Configuration steps :
 
-Creating the Firebase app on :
+Creating the Firebase project on :
 [Firebase console](https://console.firebase.google.com/)
 
 Copy the firebase config json object in this format and replace it in `index.js` :  
