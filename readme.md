@@ -28,3 +28,9 @@ To launch the app on the local network with HTTPS on :
 
 To deploy the app on Github Pages :  
 `npm run deploy`
+
+Access the mobile app PWA through HTTPS required :  
+[text](https:example.com/ActivityTrackingMobile/mobile/Home)
+
+Access the admin web app :  
+[text](https:example.com/ActivityTrackingMobile/web/Home)
